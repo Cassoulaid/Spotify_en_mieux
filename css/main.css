@@ -134,6 +134,12 @@ body {
     align-items: center;
 }
 
+.user_name {
+    font-size: 32px;
+    font-weight: 700;
+    padding-right: 20px;
+}
+
 .premium-button {
     background-color: transparent;
     border: 1px solid var(--text-secondary);
