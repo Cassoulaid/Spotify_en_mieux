@@ -1,0 +1,93 @@
+/* Mix Intelligent Page Styles */
+.mood-selector {
+    margin-bottom: 40px;
+}
+
+.mood-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.mood-option {
+    background-color: var(--surface-color);
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.mood-option:hover {
+    background-color: var(--surface-hover);
+    transform: translateY(-2px);
+}
+
+.mood-option.active {
+    background-color: rgba(29, 185, 84, 0.2);
+    border: 1px solid var(--primary-color);
+}
+
+.mood-option i {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.mood-option span {
+    font-weight: 600;
+}
+
+.sliders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.slider-control {
+    background-color: var(--surface-color);
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.slider-control label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.slider-value {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, var(--primary-color) 0%, var(--primary-color) 50%, var(--surface-hover) 50%, var(--surface-hover) 100%);
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+    transition: transform var(--transition-speed);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+

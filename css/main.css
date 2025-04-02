@@ -1,0 +1,692 @@
+/* Main Styles */
+:root {
+    --primary-color: #1DB954;
+    --primary-hover: #1ed760;
+    --background-color: #121212;
+    --surface-color: #181818;
+    --surface-hover: #282828;
+    --text-primary: #FFFFFF;
+    --text-secondary: #b3b3b3;
+    --sidebar-width: 240px;
+    --player-height: 90px;
+    --transition-speed: 0.3s;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: 1fr var(--player-height);
+    grid-template-areas:
+        "sidebar main"
+        "player player";
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #000000;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.logo {
+    padding: 0 24px;
+    margin-bottom: 24px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    margin-bottom: 24px;
+}
+
+.nav-item {
+    padding: 0 24px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+    color: var(--text-secondary);
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-primary);
+}
+
+.nav-item i {
+    margin-right: 16px;
+    font-size: 20px;
+}
+
+.playlists {
+    padding: 0 24px;
+    margin-top: auto;
+}
+
+.playlists h3 {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.playlists ul li {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color var(--transition-speed);
+    font-size: 14px;
+}
+
+.playlists ul li:hover {
+    color: var(--text-primary);
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    background: linear-gradient(to bottom, #3b3b3b, var(--background-color) 15%);
+    overflow-y: auto;
+    position: relative;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.navigation-controls .nav-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+}
+
+.user_name {
+    font-size: 32px;
+    font-weight: 700;
+    padding-right: 20px;
+}
+
+.premium-button {
+    background-color: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-right: 16px;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.premium-button:hover {
+    transform: scale(1.05);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.user-profile span {
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+/* Content Pages */
+.content-container {
+    padding: 0 32px 32px;
+}
+
+.page {
+    display: none;
+    padding-bottom: 32px;
+}
+
+.page.active {
+    display: block;
+}
+
+.page h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 24px 0;
+}
+
+.section {
+    margin-bottom: 32px;
+}
+
+.section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 16px;
+    transition: background-color var(--transition-speed);
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: var(--surface-hover);
+}
+
+.card-img {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.card-img img {
+    width: 100%;
+    border-radius: 4px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.card:hover .play-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.play-button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Home Page Specific */
+.challenges-preview {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.challenge-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 400px;
+}
+
+.challenge-progress {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.challenge-progress svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-background {
+    fill: none;
+    stroke: var(--surface-hover);
+    stroke-width: 8;
+}
+
+.progress-bar {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 8;
+    stroke-dasharray: 283;
+    stroke-dashoffset: calc(283 - (283 * var(--progress)) / 100);
+    transition: stroke-dashoffset 1s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.challenge-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.challenge-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.see-all-button {
+    background-color: transparent;
+    color: var(--text-primary);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.see-all-button:hover {
+    text-decoration: underline;
+}
+
+/* Search Page Specific */
+.search-container {
+    margin-top: 24px;
+}
+
+.search-container input {
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+
+.categories h2 {
+    margin-bottom: 24px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+}
+
+.category {
+    height: 180px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+/* Library Page Specific */
+.library-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+}
+
+.tab {
+    background-color: transparent;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.sort button {
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.sort button:hover {
+    color: var(--text-primary);
+}
+
+.library-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.library-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.library-item:hover {
+    background-color: var(--surface-hover);
+}
+
+.library-item img {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 16px;
+}
+
+.item-info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.item-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Player Bar */
+.player-bar {
+    grid-area: player;
+    background-color: var(--surface-color);
+    border-top: 1px solid #282828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.track-info img {
+    width: 56px;
+    height: 56px;
+    margin-right: 14px;
+}
+
+.track-details h4 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.track-details p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.like-button {
+    margin-left: 16px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.like-button:hover {
+    color: var(--text-primary);
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.control-buttons button {
+    color: var(--text-secondary);
+    margin: 0 8px;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.control-buttons button:hover {
+    color: var(--text-primary);
+}
+
+.play-pause {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--text-primary);
+    color: black !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px !important;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.current-time, .total-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+    width: 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: var(--surface-hover);
+    border-radius: 2px;
+    margin: 0 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    width: 30%;
+}
+
+.additional-controls {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.queue-button, .device-button {
+    color: var(--text-secondary);
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.queue-button:hover, .device-button:hover {
+    color: var(--text-primary);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+}
+
+.volume-control i {
+    color: var(--text-secondary);
+    margin-right: 8px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background-color: var(--surface-hover);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.volume-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    width: 70%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .sidebar {
+        --sidebar-width: 80px;
+    }
+    
+    .app-container {
+        grid-template-columns: var(--sidebar-width) 1fr;
+    }
+    
+    .logo img {
+        height: 30px;
+    }
+    
+    .nav-item span, .playlists {
+        display: none;
+    }
+    
+    .nav-item {
+        justify-content: center;
+    }
+    
+    .nav-item i {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .additional-controls {
+        display: none;
+    }
+    
+    .player-controls {
+        width: 60%;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main"
+            "player";
+    }
+    
+    .sidebar {
+        display: none;
+    }
+    
+    .content-container {
+        padding: 0 16px 16px;
+    }
+    
+    .top-bar {
+        padding: 16px;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
