@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/challenges.css">
     <link rel="stylesheet" href="css/mixer.css">
+    <link rel="stylesheet" href="css/player.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="logo">
                 <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt="Spotify Logo">
@@ -51,20 +53,26 @@
             </div>
         </nav>
 
+        <!-- Main Content Area -->
         <main class="main-content">
             <header class="top-bar">
-                <div></div>
+                <div class="navigation-controls">
+                    <button class="nav-button back"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-button forward"><i class="fas fa-chevron-right"></i></button>
+                </div>
                 <div class="user-controls">
-                        <a href="login.html" id="login-button" class="premium-button">Se connecter</a>
-                        <a href="inscription.html" id="register-button" class="premium-button">S'inscrire</a>
-
-                        <span id="user-name" class="user_name"></span>
-                        <div id="user-profile" style="display:none;">                   
-                        <button id="logout-button" class="premium-button">Déconnexion</button>
-                    </div>
+                    <button class="premium-button">Premium</button>
+                    <button class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="User Profile">
+                        <span>Profil</span>
+                        <i class="fas fa-caret-down"></i>
+                    </button>
                 </div>
             </header>
+
+            <!-- Content Pages -->
             <div class="content-container">
+                <!-- Home Page -->
                 <section class="page active" id="home">
                     <h1>Bonjour</h1>
                     <div class="section">
@@ -72,7 +80,7 @@
                         <div class="card-grid">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="images/daily_mix1.jfif" alt="Album">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b27371c65edbeed32ae9a22fbed6" alt="Album">
                                     <button class="play-button"><i class="fas fa-play"></i></button>
                                 </div>
                                 <h3>Daily Mix 1</h3>
@@ -80,7 +88,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="images/decouvertes_semaines.jfif" alt="Album">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b273cb4ec52c48a6b071ed2ab6bc" alt="Album">
                                     <button class="play-button"><i class="fas fa-play"></i></button>
                                 </div>
                                 <h3>Découvertes de la semaine</h3>
@@ -88,7 +96,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="images/top_hits.jfif" alt="Album">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b273ba5db46f4b838ef6027e6f96" alt="Album">
                                     <button class="play-button"><i class="fas fa-play"></i></button>
                                 </div>
                                 <h3>Top Hits</h3>
@@ -96,164 +104,13 @@
                             </div>
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="images/ambiance_travail.jfif" alt="Album">
+                                    <img src="https://i.scdn.co/image/ab67616d0000b2731b6cc5d87fcb25006bf3428a" alt="Album">
                                     <button class="play-button"><i class="fas fa-play"></i></button>
                                 </div>
                                 <h3>Ambiance Travail</h3>
                                 <p>Concentration maximale</p>
                             </div>
                         </div>
-                        <div class="section">
-                            <h2>Créé pour vous</h2>
-                            <div class="card-grid">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/mix_90s.jfif" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Mix Années 90</h3>
-                                    <p>Les hits nostalgiques</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/indie_mix.jfif" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Indie Mix</h3>
-                                    <p>Découvertes indie rock</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/mix_soirées.jfif" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Mix Soirée</h3>
-                                    <p>Pour faire la fête</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/detente.jfif" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Détente</h3>
-                                    <p>Pour se relaxer</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <h2>Artistes populaires</h2>
-                            <div class="card-grid">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/daft_punk.jfif" alt="Artiste" style="border-radius: 50%;">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Daft Punk</h3>
-                                    <p>Artiste</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/angele.jfif" alt="Artiste" style="border-radius: 50%;">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Angèle</h3>
-                                    <p>Artiste</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/orlesan.jfif" alt="Artiste" style="border-radius: 50%;">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Orelsan</h3>
-                                    <p>Artiste</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/stromae.jfif" alt="Artiste" style="border-radius: 50%;">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Stromae</h3>
-                                    <p>Artiste</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <h2>Podcasts à découvrir</h2>
-                            <div class="card-grid">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/culture_g.jfif" alt="Podcast">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Culture Générale</h3>
-                                    <p>Histoire et découvertes</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/daily-podcasts-en.jpg" alt="Podcast">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Dialy Podcast</h3>
-                                    <p>Découvrez votre podcast de la journée</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/tech_new.jfif" alt="Podcast">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Tech News</h3>
-                                    <p>Actualités technologiques</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/stories.jfif" alt="Podcast">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Stories</h3>
-                                    <p>Histoires et anecdotes</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <h2>Nouveautés pour vous</h2>
-                            <div class="card-grid">
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="https://i.scdn.co/image/ab67616d0000b2739478c87599550dd73bfa7e02" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Nouvel Album</h3>
-                                    <p>Sorti cette semaine</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="images/single_moment.jfif" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Single du moment</h3>
-                                    <p>Tendance actuelle</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="https://i.scdn.co/image/ab67616d0000b2736feb6d9ed7891f40e9a524dd" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>EP découverte</h3>
-                                    <p>Nouvel artiste prometteur</p>
-                                </div>
-                                <div class="card">
-                                    <div class="card-img">
-                                        <img src="https://i.scdn.co/image/ab67616d0000b273b1c4b76e23414c9f20242268" alt="Album">
-                                        <button class="play-button"><i class="fas fa-play"></i></button>
-                                    </div>
-                                    <h3>Remix exclusif</h3>
-                                    <p>Version spéciale</p>
-                                </div>
-                            </div>
-                    </div>
                     </div>
                     <div class="section">
                         <h2>Défis en cours</h2>
@@ -276,6 +133,7 @@
                     </div>
                 </section>
 
+                <!-- Search Page (Placeholder) -->
                 <section class="page" id="search">
                     <h1>Rechercher</h1>
                     <div class="search-container">
@@ -298,62 +156,49 @@
                     </div>
                 </section>
 
+                <!-- Library Page (Placeholder) -->
                 <section class="page" id="library">
                     <h1>Bibliothèque</h1>
                     <div class="library-controls">
                         <div class="tabs">
-                            <button class="tab active">Playlists</button>
+                            <button class="tab">Playlists</button>
                             <button class="tab">Artistes</button>
-                            <button class="tab">Albums</button>
+                            <button class="tab active">Albums</button>
                         </div>
                         <div class="sort">
                             <button><i class="fas fa-sort"></i> Récents</button>
                         </div>
                     </div>
-                    <div class="library-items">
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f000000035d87659ded62386d5d55cfcd" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Mix Liked Songs</h3>
-                                <p>Playlist • Spotify</p>
-                            </div>
-                        </div>
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f00000003e179a419e4643f3f28353d0c" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Chill Vibes</h3>
-                                <p>Playlist • Vous</p>
-                            </div>
-                        </div>
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f00000003b6aa61851574da73fe9ddf31" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Summer Hits</h3>
-                                <p>Playlist • Vous</p>
-                            </div>
-                        </div>
+                    <!-- Ce div sera rempli par le JavaScript -->
+                    <div class="library-items albums-grid">
+                        <!-- Les albums seront générés dynamiquement par JavaScript -->
                     </div>
                 </section>
 
+                <!-- Challenges Page -->
                 <section class="page" id="challenges">
                     <h1>Défis Musicaux</h1>
                     <div class="badges-section">
                         <h2>Vos Badges</h2>
                         <div class="badges-container">
+                            <!-- Les badges seront générés dynamiquement par JavaScript -->
                         </div>
                     </div>
                     <div class="active-challenges">
                         <h2>Défis actifs</h2>
                         <div class="challenges-container">
+                            <!-- Les défis seront générés dynamiquement par JavaScript -->
                         </div>
                     </div>
                     <div class="completed-challenges">
                         <h2>Défis complétés</h2>
                         <div class="completed-container">
+                            <!-- Les défis complétés seront générés dynamiquement par JavaScript -->
                         </div>
                     </div>
                 </section>
 
+                <!-- Mix Intelligent Page -->
                 <section class="page" id="mixer">
                     <h1>Mix Intelligent</h1>
                     <div class="mood-selector">
@@ -413,6 +258,7 @@
                     <div class="mixer-tracks">
                         <h2>Morceaux sélectionnés</h2>
                         <div class="tracks-container">
+                            <!-- Les morceaux seront générés dynamiquement par JavaScript -->
                         </div>
                         <button class="save-mix-button">Enregistrer ce mix</button>
                     </div>
@@ -420,6 +266,7 @@
             </div>
         </main>
 
+        <!-- Player Bar -->
         <footer class="player-bar">
             <div class="track-info">
                 <img src="https://i.scdn.co/image/ab67616d000048513e0936e7fa62cd2ad3c38e98" alt="Current Track">
@@ -458,9 +305,11 @@
         </footer>
     </div>
 
+    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/challenges.js"></script>
     <script src="js/mixer.js"></script>
-    <script src="js/user.js"></script>
+    <script src="data/affichage.js"></script>
+    <script src="js/player.js"></script>
 </body>
 </html>
