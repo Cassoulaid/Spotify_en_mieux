@@ -160,36 +160,17 @@
                     <h1>Bibliothèque</h1>
                     <div class="library-controls">
                         <div class="tabs">
-                            <button class="tab active">Playlists</button>
+                            <button class="tab">Playlists</button>
                             <button class="tab">Artistes</button>
-                            <button class="tab">Albums</button>
+                            <button class="tab active">Albums</button>
                         </div>
                         <div class="sort">
                             <button><i class="fas fa-sort"></i> Récents</button>
                         </div>
                     </div>
-                    <div class="library-items">
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f000000035d87659ded62386d5d55cfcd" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Mix Liked Songs</h3>
-                                <p>Playlist • Spotify</p>
-                            </div>
-                        </div>
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f00000003e179a419e4643f3f28353d0c" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Chill Vibes</h3>
-                                <p>Playlist • Vous</p>
-                            </div>
-                        </div>
-                        <div class="library-item">
-                            <img src="https://i.scdn.co/image/ab67706f00000003b6aa61851574da73fe9ddf31" alt="Playlist">
-                            <div class="item-info">
-                                <h3>Summer Hits</h3>
-                                <p>Playlist • Vous</p>
-                            </div>
-                        </div>
+                    <!-- Ce div sera rempli par le JavaScript -->
+                    <div class="library-items albums-grid">
+                        <!-- Les albums seront générés dynamiquement par JavaScript -->
                     </div>
                 </section>
 
@@ -327,5 +308,6 @@
     <script src="js/main.js"></script>
     <script src="js/challenges.js"></script>
     <script src="js/mixer.js"></script>
+    <script src="data/affichage.js"></script>
 </body>
 </html>
