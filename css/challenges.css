@@ -1,4 +1,4 @@
-
+/* Challenges Page Styles */
 .badges-section, .active-challenges, .completed-challenges {
     margin-bottom: 40px;
 }
@@ -13,7 +13,7 @@
 .badge {
     display: flex;
     align-items: center;
-    width: 210px;
+    width: 120px;
     text-align: center;
     padding: 15px;
     border-radius: 8px;
